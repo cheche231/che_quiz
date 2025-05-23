@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <title>che_quiz 고분자 퀴즈</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        button {
+            margin: 6px 0;
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: #fff;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #e6f0ff;
+        }
+        #quiz {
+            margin-top: 20px;
+        }
+        #score {
+            font-weight: bold;
+            margin-top: 20px;
+            text-align: center;
+            font-size: 18px;
+            color: #007acc;
+        }
+        #time {
+            text-align: center;
+            font-size: 16px;
+            color: #666;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>che_quiz 고분자 퀴즈</h1>
+    <div id="quiz"></div>
+    <p id="score"></p>
+    <p id="time"></p>
+
+    <script>
+        const questions = [
+            {
+                question: "Python의 창시자는 누구일까요?",
+                answers: ["Guido van Rossum", "Bill Gates", "Elon Musk", "Mark Zuckerberg"],
+                correct: 1
+            },
+            {
+                question: "HTML의 약자는?",
+                answers: ["Hyper Text Markup Language", "High Text Markup Language", "Hyperlink Text Mark Language", "Hyperlink Text Markup Level"],
+                correct: 1
+            },
+            {
+                question: "CSS는 무엇을 위한 언어일까요?",
+                answers: ["스타일 지정", "구조 작성", "데이터 저장", "서버 통신"],
+                correct: 1
+            },
+            {
+                question: "JavaScript는 주로 어디에 사용될까요?",
+                answers: ["웹 페이지 동작", "이미지 편집", "데이터베이스 관리", "서버 운영체제"],
+                correct: 1
+            }
+        ];
+
+        let current = 0;
+        let score = 0;
+        let startTime = null;
+
+        function showQuestion() {
+            if (current === 0) {
+                startTime = new Date(); // 퀴즈 시작 시간 기록
+                document.getElementById('time').textContent = '';
+            }
+
+            if (current >= questions.length) {
+                const endTime = new Date();
+                const timeDiff = Math.floor((endTime - startTime) / 1000);
+                const minutes = Math.floor(timeDiff / 60);
+                const seconds = timeDiff % 60;
+
+                document.getElementById('quiz').innerHTML = `
+                    <h2>퀴즈 완료!</h2>
+                    <p>점수: ${score} / ${questions.length}</p>
+                    <p>걸린 시간: ${minutes}분 ${seconds}초</p>
+                `;
+                document.getElementById('score').textContent = '';
+                return;
+            }
+
+            const q = questions[current];
+            let html = `<h3>${q.question}</h3>`;
+            for(let i = 0; i < q.answers.length; i++){
+                html += `<button onclick="checkAnswer(${i+1})">${q.answers[i]}</button>`;
+            }
+            document.getElementById('quiz').innerHTML = html;
+            document.getElementById('score').textContent = `현재 점수: ${score} / ${questions.length}`;
+        }
+
+        function checkAnswer(answer) {
+            if (answer === questions[current].correct) {
+                alert("정답입니다!");
+                score++;
+            } else {
+                alert(`틀렸습니다. 정답은 ${questions[current].correct}번입니다.`);
+            }
+            current++;
+            showQuestion();
+        }
+
+        showQuestion();
+    </script>
+</body>
+</html>

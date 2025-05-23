@@ -54,28 +54,42 @@
     <div id="quiz"></div>
     <p id="score"></p>
     <p id="time"></p>
-
     <script>
         const questions = [
             {
-                question: "Python의 창시자는 누구일까요?",
-                answers: ["Guido van Rossum", "Bill Gates", "Elon Musk", "Mark Zuckerberg"],
-                correct: 1
+                question: "다음 중 단계중합(Step-growth polymerization)의 특징으로 옳지 않은 것은?",
+                answers: ["초기 반응에서 이량체, 삼량체가 생성된다.", "평균 분자량은 반응 초기에 급격히 증가한다.", "말단기 간의 반응이 가능하다.", "개시제가 필요하지 않다."],
+                correct: 2
             },
             {
-                question: "HTML의 약자는?",
-                answers: ["Hyper Text Markup Language", "High Text Markup Language", "Hyperlink Text Mark Language", "Hyperlink Text Markup Level"],
-                correct: 1
+                question: "다음 중 단계중합 메커니즘을 통해 합성되는 고분자 소재가 아닌 것은?",
+                answers: ["Aromatic polyether (PPO)", "Polysulfone (PSU)", "Polyacrylonitrile (PAN)", "Aromatic polyimide"],
+                correct: 3
             },
             {
-                question: "CSS는 무엇을 위한 언어일까요?",
-                answers: ["스타일 지정", "구조 작성", "데이터 저장", "서버 통신"],
-                correct: 1
+                question: "팽창 계수(α)의 설명으로 틀린것은?",
+                answers: ["α가 1보다 크면 good solvent이다.", "α^2이 1보다 작으면 bad solvent이다.", "α의 값을 통해 r^2과 r0^2의 비를 알 수 있다.", "α의 값이 0이라는 것은 r^2= r0^2것을 의미한다."],
+                correct: 4
             },
             {
-                question: "JavaScript는 주로 어디에 사용될까요?",
-                answers: ["웹 페이지 동작", "이미지 편집", "데이터베이스 관리", "서버 운영체제"],
-                correct: 1
+                question: "고분자 용해와 관련된 설명으로 틀린것은?",
+                answers: ["망상구조 고분자의 대표적인 예시로는 고무가 있다.", "망상구조 고분자는 gel이 형성되지 않아 용해가 되지 않는다.", "bad solvent일수록 크기가 줄어든다.", "good solvent일수록 고분자의 용액 점도는 증가한다."],
+                correct: 2
+            },
+            {
+                question: "다음 중 가지형 고분자가 생성될 수 있는 조건은?",
+                answers: ["모든 단량체가 작용기 2개를 가질 때", "작용기 2개인 단량체와 작용기 3개 이상인 단량체가 섞여 있을 때", "모든 단량체가 작용기 1개만 가질 때", "두 종류의 단량체가 정확히 1:1 비율로 반응할 때"],
+                correct: 2
+            },
+            {
+                question: "Step polymerization에 대한 설명으로 옳지 않은 것은?",
+                answers: ["모든 단량체가 두 개의 작용기를 가지면 선형 고분자가 형성된다.", "단량체의 작용기 수는 최종 고분자의 구조에 영향을 미친다.", "다관능성 단량체가 포함되면 가지 고분자가 형성될 수 있다.", "작용기 수와는 관계없이 항상 선형 고분자가 생성된다."],
+                correct: 4
+            },
+            {
+                question: "다음의 짝지어진 작용기 쌍들 중 단계중합으로 polyester를 합성할 수 있는 것은?",
+                answers: ["ester group + ester group", "carboxylic acid + Hydroxyl group ", "amide group + amide group", "ester group + amide group"],
+                correct: 2
             }
         ];
 
